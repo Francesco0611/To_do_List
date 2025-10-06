@@ -23,8 +23,12 @@ public:
     }
 
     string getName() const;
+    bool isCompleted() const;
 
+    void setName(const string& newName);
+    void setDescription(const string& newDescription);
     void setExpirationDate(const string& newExpirationDate);
+    void markCompleted();
 
     void showTask() const;
 };

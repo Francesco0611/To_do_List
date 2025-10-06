@@ -9,7 +9,22 @@ int main() {
 
         myList.displayTask();
 
-        myList.deleteTask(3);
+    myList.editTask(2, "Studiare C++ avanzato", "Rivedere concetti avanzati di C++", "28-03-2025");
+
+    myList.deleteTask(3);
+
+
+    myList.markTaskCompleted(1);
+
+    vector<Task> notCompletedTasks = myList.showNotCompletedTasks();
+    cout << "\nTask da completare:" << endl;
+    if (notCompletedTasks.empty()) {
+        cout << "Non è presente nessuna task da completare!" << endl;
+    } else {
+        for (const auto &task : notCompletedTasks) {
+            task.showTask();
+        }
+    }
 
         myList.displayTask();
 

@@ -17,6 +17,11 @@ public:
     void addTask(const string &name, const string &description, const string &expirationDate);
     void deleteTask(int index);
     void displayTask() const;
+    void markTaskCompleted(int index);
+    void editTask(int index, const string &newName, const string &newDescription, const string &newExpirationDate);
+
+
+    std::vector<Task> showNotCompletedTasks() const;
 };
 
 #endif

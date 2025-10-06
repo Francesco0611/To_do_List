@@ -10,6 +10,17 @@ string Task::getName() const {
     return name;
 }
 
+bool Task::isCompleted() const {
+    return completed;
+}
+
+void Task::setName(const std::string &newName) {
+    name = newName;
+}
+void Task::setDescription(const std::string &newDescription) {
+    description = newDescription;
+}
+
 bool Task::isValidDate(const std::string &date) {
     std::regex datePattern(R"(^(\d{1,2})-(\d{1,2})-(\d{4})$)");
     std::smatch match;
@@ -52,7 +63,9 @@ void Task::setExpirationDate(const std::string &newExpirationDate) {
     expirationDate = newExpirationDate;
 }
 
-
+void Task::markCompleted() {
+    completed = true;
+}
 
 void Task::showTask() const {
     cout << "----------------------------------------" << endl;

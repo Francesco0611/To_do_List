@@ -37,3 +37,39 @@ void To_do_List::displayTask() const {
         tasks[i].showTask();
     }
 }
+
+void To_do_List::markTaskCompleted(int index) {
+    if (tasks.empty()) {
+        printf("Non è presente nessuna Task da segnare come 'Completata'!");
+    }
+    int i = index - 1;
+    if (i < 0 || i >= tasks.size()) {
+        printf("Indice non valido per la Task.");
+    }
+    tasks[i].markCompleted();
+    cout << "\nTask segnata come 'Completata': " << tasks[i].getName() << endl;
+}
+
+void To_do_List::editTask(int index, const string &newName, const string &newDescription, const string &newExpirationDate) {
+    if (tasks.empty()) {
+        printf("Non è presente nessuna Task da modificare!");
+    }
+    int i = index - 1;
+    if (i < 0 || i >= tasks.size()) {
+        printf("Indice non valido per la Task.");
+    }
+    tasks[i].setName(newName);
+    tasks[i].setDescription(newDescription);
+    tasks[i].setExpirationDate(newExpirationDate);
+    cout << "\nTask modificata: " << newName << endl;
+}
+
+std::vector<Task> To_do_List::showNotCompletedTasks() const {
+    std::vector<Task> results;
+    for (const auto &task : tasks) {
+        if (!task.isCompleted()) {
+            results.push_back(task);
+        }
+    }
+    return results;
+}
