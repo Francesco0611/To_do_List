@@ -10,7 +10,7 @@ int main() {
 
         myList.displayTask();
 
-    myList.editTask(2, "Studiare C++ avanzato", "Rivedere concetti avanzati di C++", "28-03-2025");
+    myList.editTask(2, "Studiare C++ avanzato", "Rivedere concetti avanzati di C++", "28-10-2025");
 
     myList.deleteTask(3);
 
@@ -31,7 +31,6 @@ int main() {
 } catch (const exception &e) {
     cout << "Errore: " << e.what() << endl;
 }
-
 
     return 0;    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }

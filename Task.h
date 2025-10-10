@@ -23,6 +23,8 @@ public:
     }
 
     string getName() const;
+    string getDescription() const;
+    string getExpirationDate() const;
     bool isCompleted() const;
 
     void setName(const string& newName);
