@@ -65,6 +65,26 @@ void To_do_List::editTask(int index, const string &newName, const string &newDes
     cout << "\nTask modificata: " << newName << endl;
 }
 
+std::vector<Task> To_do_List::searchByDate(const std::string &date) const {
+    std::vector<Task> results;
+    for (const auto &task : tasks) {
+        if (task.getExpirationDate() == date) {
+            results.push_back(task);
+        }
+    }
+    return results;
+}
+
+std::vector<Task> To_do_List::searchByKeyword(const std::string &keyword) const {
+    std::vector<Task> results;
+    for (const auto &task : tasks) {
+        if (task.getName().find(keyword) != string::npos) {
+            results.push_back(task);
+        }
+    }
+    return results;
+}
+
 std::vector<Task> To_do_List::showNotCompletedTasks() const {
     std::vector<Task> results;
     for (const auto &task : tasks) {

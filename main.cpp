@@ -12,8 +12,25 @@ int main() {
 
     myList.editTask(2, "Studiare C++ avanzato", "Rivedere concetti avanzati di C++", "28-10-2025");
 
-    myList.deleteTask(3);
 
+        vector<Task> tasksByDate = myList.searchByDate("27-03-2025");
+        cout << "\nTasks con data '27-03-2025':" << endl;
+        if (tasksByDate.empty()) {
+            cout << "Non è presente nessuna task per la data inserita!" << endl;
+        } else {
+            for (const auto &task : tasksByDate) {
+                task.showTask();
+            }
+        }
+        vector<Task> tasksByKeyword = myList.searchByKeyword("Comprare");
+        cout << "\nTasks contenenti 'Comprare' nel titolo:" << endl;
+        if (tasksByKeyword.empty()) {
+            cout << "Non è presente nessuna task che ha nel titolo la parola inserita!" << endl;
+        } else {
+            for (const auto &task : tasksByKeyword) {
+                task.showTask();
+            }
+        }
 
     myList.markTaskCompleted(1);
 
@@ -27,10 +44,12 @@ int main() {
         }
     }
 
+        myList.deleteTask(3);
+
         myList.displayTask();
 } catch (const exception &e) {
     cout << "Errore: " << e.what() << endl;
 }
 
-    return 0;    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
+    return 0;
 }

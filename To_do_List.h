@@ -21,6 +21,8 @@ public:
     void editTask(int index, const string &newName, const string &newDescription, const string &newExpirationDate);
 
 
+    std::vector<Task> searchByDate(const std::string &date) const;
+    std::vector<Task> searchByKeyword(const std::string &keyword) const;
     std::vector<Task> showNotCompletedTasks() const;
 };
 
